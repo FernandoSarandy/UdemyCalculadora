@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    #main{width: 300px; height: 280px; background-color: black;}
+    input{width: 20%; height: 40px; font-size: 20px; margin: 6px;}
+    #campoNumero{width: 93%; height: 50px; background-color: silver;}
+  </style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="main">
+    <form name="f">
+      <input id = "campoNumero" type="text" name="campoNumero" placeholder="0">
+      <br>
+      <input type="button" value="1" onclick="f.campoNumero.value+=1">
+      <input type="button" value="2" onclick="f.campoNumero.value+=2">
+      <input type="button" value="3" onclick="f.campoNumero.value+=3">
+      <input type="button" value="+" onclick="add()">
+      <br>
+      <input type="button" value="4" onclick="f.campoNumero.value+=4">
+      <input type="button" value="5" onclick="f.campoNumero.value+=5">
+      <input type="button" value="6" onclick="f.campoNumero.value+=6">
+      <input type="button" value="-" onclick="minus()">
+      <br>
+      <input type="button" value="7" onclick="f.campoNumero.value+=7">
+      <input type="button" value="8" onclick="f.campoNumero.value+=8">
+      <input type="button" value="9" onclick="f.campoNumero.value+=9">
+      <input type="button" value="*" onclick="multi()">
+      <br>
+      <input type="button" value="c" onclick="f.campoNumero.value=''">
+      <input type="button" value="0" onclick="f.campoNumero.value+=0">
+      <input type="button" value="=" onclick="f.campoNumero.value=eval(f.campoNumero.value)">
+      <input type="button" value="/" onclick="divide()">
+
+    </form>
+  </div>
+  <script>
+    function add(){
+      var current, sub;
+      current = f.campoNumero.value;
+      sub = current.charAt(current.length -1);
+      if (sub == '+' || sub == '-' || sub == '*' || sub == '/'){
+        f.campoNumero.value=current.substring(0, current.length-1);
+        f.campoNumero.value+='+';
+      } else {
+        f.campoNumero.value+='+';
+      }
+    }
+    function minus(){
+      var current, sub;
+      current = f.campoNumero.value;
+      sub = current.charAt(current.length -1);
+      if (sub == '+' || sub == '-' || sub == '*' || sub == '/'){
+        f.campoNumero.value=current.substring(0, current.length-1);
+        f.campoNumero.value+='-';
+      } else {
+        f.campoNumero.value+='-';
+      }
+    }
+    function multi(){
+      var current, sub;
+      current = f.campoNumero.value;
+      sub = current.charAt(current.length -1);
+      if (sub == '+' || sub == '-' || sub == '*' || sub == '/'){
+        f.campoNumero.value=current.substring(0, current.length-1);
+        f.campoNumero.value+='*';
+      } else {
+        f.campoNumero.value+='*';
+      }
+    }
+    function divide(){
+      var current, sub;
+      current = f.campoNumero.value;
+      sub = current.charAt(current.length -1);
+      if (sub == '+' || sub == '-' || sub == '*' || sub == '/'){
+        f.campoNumero.value=current.substring(0, current.length-1);
+        f.campoNumero.value+='/';
+      } else {
+        f.campoNumero.value+='/';
+      }
+    }
+  </script>
+</body>
+</html>
